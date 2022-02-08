@@ -27,83 +27,87 @@ ui <- fluidPage(
 
     # Key parameters: flour weight and hydration percentage
     fluidRow(
-      column(4, numericInput(inputId = "total_flour",
-                 label = "Total flour weight (g)",
+      column(3, numericInput(inputId = "total_flour",
+                 label = "Total flour weight (g)", width = '60%',
                  value = 500)),
-      column(4, numericInput(inputId = "hydration",
-                 label = "Hydration percentage",
+      column(3, numericInput(inputId = "hydration",
+                 label = "Hydration percentage", width = '60%',
                  value = 75)),
-      column(4, numericInput(inputId = "levain_hydro",
-                 label = "Levain hydration percentage",
+      column(3, numericInput(inputId = "levain_hydro",
+                 label = "Levain hydration", width = '60%',
                  value = 100))
     ),
-    helpText("Percentages of flours 2 or 3 set percentage of flour 1."),
-    helpText("Note: levain percentage defined by total weight / flour weight"),
     fluidRow(
-      column(4, h4(style="strong", "Ingredient")),
-      column(4, h4("Percent")),
-      column(4, h4("Weight (g)"))
+      column(6,
+           helpText("Percentages of flours 2 or 3 set percentage of flour 1."),
+           helpText("Note: levain percentage defined by total weight / flour weight")
+      )
     ),
     fluidRow(
-      column(4, div(style="height: 30px;", "Flour 1 (e.g. white)")),
-      column(4, textOutput("pct_flour_1")),
-      column(4, div(textOutput("wt_flour_1")))
+      column(3, h4(style="strong", "Ingredient")),
+      column(3, h4("Percent")),
+      column(3, h4("Weight (g)"))
     ),
     fluidRow(
-      column(4, div(style="margin-top: 9px;", "Flour 2 (e.g. whole wheat)")),
-      column(4, numericInput(inputId = "pct_flour_2",
-                             label = NULL,
+      column(3, div(style="height: 30px;", "Flour 1 (e.g. white)")),
+      column(3, textOutput("pct_flour_1")),
+      column(3, div(textOutput("wt_flour_1")))
+    ),
+    fluidRow(
+      column(3, div(style="margin-top: 9px;", "Flour 2 (e.g. whole wheat)")),
+      column(3, numericInput(inputId = "pct_flour_2",
+                             label = NULL, width = '60%',
                              value = 20)),
-      column(4, div(style="margin-top: 9px;",textOutput("wt_flour_2")))
+      column(3, div(style="margin-top: 9px;",textOutput("wt_flour_2")))
     ),
     fluidRow(
-      column(4, div(style="margin-top: 9px;", "Flour 3 (e.g. rye)")),
-      column(4, numericInput(inputId = "pct_flour_3",
-                             label = NULL,
+      column(3, div(style="margin-top: 9px;", "Flour 3 (e.g. rye)")),
+      column(3, numericInput(inputId = "pct_flour_3",
+                             label = NULL, width = '60%',
                              value = 5)),
-      column(4, div(style="margin-top: 9px;",textOutput("wt_flour_3")))
+      column(3, div(style="margin-top: 9px;",textOutput("wt_flour_3")))
     ),
     fluidRow(
-      column(4, div(style="height: 30px;", "Water")),
-      column(4),
-      column(4, div(textOutput("wt_water")))
+      column(3, div(style="height: 30px;", "Water")),
+      column(3),
+      column(3, div(textOutput("wt_water")))
     ),
     fluidRow(
-      column(4, div(style="margin-top: 9px;", "Levain")),
-      column(4, numericInput(inputId = "pct_levain",
-                             label = NULL,
+      column(3, div(style="margin-top: 9px;", "Levain")),
+      column(3, numericInput(inputId = "pct_levain",
+                             label = NULL, width = '60%',
                              value = 25, min = 0, max = 100)),
-      column(4, div(style="margin-top: 9px;",textOutput("wt_levain")))
+      column(3, div(style="margin-top: 9px;",textOutput("wt_levain")))
     ),
     fluidRow(
-      column(4, div(style="margin-top: 9px;", "Salt")),
-      column(4, numericInput(inputId = "pct_salt",
-                             label = NULL,
+      column(3, div(style="margin-top: 9px;", "Salt")),
+      column(3, numericInput(inputId = "pct_salt",
+                             label = NULL, width = '60%',
                              value = 2.0, step = 0.1)),
-      column(4, div(style="margin-top: 9px;",textOutput("wt_salt")))
+      column(3, div(style="margin-top: 9px;",textOutput("wt_salt")))
     ),
     fluidRow(
-      column(4, div(style="margin-top: 9px;", "Yeast")),
-      column(4, numericInput(inputId = "pct_yeast",
-                             label = NULL,
+      column(3, div(style="margin-top: 9px;", "Yeast")),
+      column(3, numericInput(inputId = "pct_yeast",
+                             label = NULL, width = '60%',
                              value = 0, step = 0.1, min = 0)),
-      column(4, div(style="margin-top: 9px;",textOutput("wt_yeast")))
+      column(3, div(style="margin-top: 9px;",textOutput("wt_yeast")))
     ),
     br(),
     fluidRow(
-      column(4, div(style="height: 30px;", "Levain Flour 1")),
-      column(4, textOutput("pct_lf_1"))
+      column(3, div(style="height: 30px;", "Levain Flour 1")),
+      column(3, textOutput("pct_lf_1"))
     ),
     fluidRow(
-      column(4, div(style="margin-top: 9px;", "Levain Flour 2")),
-      column(4, numericInput(inputId = "pct_lf_2",
-                             label = NULL,
+      column(3, div(style="margin-top: 9px;", "Levain Flour 2")),
+      column(3, numericInput(inputId = "pct_lf_2",
+                             label = NULL, width = '60%',
                              value = 0))
     ),
     fluidRow(
-      column(4, div(style="margin-top: 9px;", "Levain Flour 3")),
-      column(4, numericInput(inputId = "pct_lf_3",
-                             label = NULL,
+      column(3, div(style="margin-top: 9px;", "Levain Flour 3")),
+      column(3, numericInput(inputId = "pct_lf_3",
+                             label = NULL, width = '60%',
                              value = 0))
     )
 )
