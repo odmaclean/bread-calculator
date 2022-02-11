@@ -7,14 +7,14 @@
 
 # Possible to-do list
 # - Add help tab
-# - Add save/load functionality: code in field?
-# - Add total weight tab, or even better way to update inputs
+# - Add total weight tab, or even better, way to update inputs
 # - Comment code
 # - Add extra ingredients
 
 library(shiny)
 
-ui <- fluidPage(
+ui <- function(request) {
+  fluidPage(
   tags$head(
     tags$style(
       HTML('
@@ -37,8 +37,11 @@ ui <- fluidPage(
                  label = "Hydration percent.", width = '100%',
                  value = 75),
   ),
-  tags$label(class="control-label;", "Total dough weight (g)"),
-  textOutput("wt_total"),
+  splitLayout(
+    div(tags$label(class="control-label;", "Total dough weight (g)"),
+        textOutput("wt_total")),
+    bookmarkButton(),
+  ),
   helpText("Percentages of flours 2 and 3 set percentage of flour 1."),
   helpText("Note: levain percentage defined by total weight / flour weight"),
   splitLayout(
@@ -103,6 +106,7 @@ ui <- fluidPage(
                  value = 0)
   )
 )
+}
 
 server <- function(input, output) {
   
@@ -154,4 +158,4 @@ server <- function(input, output) {
 }
 
 # Run the application 
-shinyApp(ui = ui, server = server)
+shinyApp(ui = ui, server = server, enableBookmarking = "url")
