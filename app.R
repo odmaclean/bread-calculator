@@ -197,8 +197,10 @@ helpPanel <- tabPanel(
     and 17 °C, respectively). The initial values are for °F, but I think it 
     should work in Celsius with the right friction factor."),
   helpText("About: "),
-  p("This calculator was built by Oliver MacLean. For feedback or suggestions, 
-    contact me at oliverdmaclean@gmail.com")
+  p("This calculator was built by Oliver MacLean, and the code is ", a(
+  href = "https://github.com/odmaclean/bread-calculator","available on GitHub."
+  )," If you have feedback or suggestions, feel free to send them to me at 
+  oliverdmaclean@gmail.com")
 )
 
 server <- function(input, output) {
